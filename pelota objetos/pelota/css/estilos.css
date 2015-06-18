@@ -1,0 +1,20 @@
+#borde{
+    width:1250px;
+    height:880px;
+    border:5px solid black;
+    overflow: hidden;
+}
+
+#contenido{
+	width:100%;
+	height:100%;
+}
+
+.pelota{
+	position:absolute;
+	display:block;
+	/*border:1px solid black;*/
+	border-radius:50%;
+	color:white;
+	text-align:center;
+}

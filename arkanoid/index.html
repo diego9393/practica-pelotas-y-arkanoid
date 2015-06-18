@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="es">
+	<head>
+		<meta charset="ISO-8859-1"> 
+		<link rel="stylesheet" type="text/css" href="css/estilos.css">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="crono.js"></script>
+		<script>
+			$(document).keydown(function(tecla)
+			{
+				if (tecla.keyCode == 36) {
+					window.location="nivel1.html";
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<head>
+			<center>
+				<h1><ins>Arkanoid</ins></h1>
+			</center>
+		</head>
+		<div id= "content">
+			<center>
+				<div id="contenidoinicio">
+					<a href="nivel1.html"><button type="button" id="entrar"><h1>Empezar juego</h1></button></a><p>
+					<h2><strong>Controles:</strong></h2><p>
+					<h3>-Ratón: Mover raqueta.<br>
+					-Flecha izquierda: Mover raqueta a la izquierda.<br>
+					-Flecha derecha: Mover raqueta a la derecha.<br>
+					-Enter: Iniciar nivel/ Reiniciar juego.<br>
+					-Inicio: Iniciar juego.<br>
+					-Pausa: Parar el juego temporalmente.<br></h3>
+					*Nota: En el nivel 3 no se pueden usar las flechas de dirección.<br>
+					</div>	
+			</center>
+		</div>
+		<footer>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+<meta charset="ISO-8859-1"> 
+<link rel="stylesheet" type="text/css" href="css/estilos.css">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script language="javascript" type="text/javascript" src="js/javascript.js"></script>
+</head>
+<body>
+<script>
+
+//var i;
+var arraypelotas = [];
+
+	if(true){
+		crearpelotas();
+		//var bolamov = setInterval ("pelota.prototype.mover()", 10);
+		var bolamov = setInterval ("moverpelotas()", 10);
+	}
+	
+function pelota(i)
+{	
+	/*variables*/
+	//var divbola;
+	//var mov;
+	var pdiv;
+	var color;
+	var tam;
+	//var bolafor;
+
+	/*pelotas*/
+	pdiv = document.createElement('div');
+	pdiv.id = 'pelota' + i;
+	pdiv.className = 'pelota';
+	document.body.appendChild(pdiv);
+	this.bolafor = document.getElementById('pelota' + i );
+	
+	color = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+	this.bolafor.style.backgroundColor=color;
+	
+	//this.tam = Math.floor(Math.random() * (70 - 20 + 1 )) + 20,
+	this.tam = Math.floor(Math.random() * (70 - 20 + 1 )) + 20,
+	document.getElementById('pelota' + i).style.width = this.tam + "px";
+	document.getElementById('pelota' + i).style.height = this.tam + "px";
+	
+	//divbola = bolafor;
+	document.getElementById('pelota' + i).innerHTML += i;
+	
+	this.mov = [
+		this.controlY=1,
+		this.controlX=1,
+		this.y=Math.floor(Math.random() * (880 - 0 + 1 )) + 0,
+		this.x=Math.floor(Math.random() * (1250 - 0 + 1 )) + 0,
+		this.velocidady = Math.floor(Math.random() * (10 - 3 + 1 )) + 1,
+		this.velocidadx = Math.floor(Math.random() * (10 - 3 + 1 )) + 1,
+		this.conyran = Math.floor(Math.random() * (1 - -1 + 1)) + 1,
+		this.conxran = Math.floor(Math.random() * (1 - -1 + 1)) + 1
+	];
+	this.bolafor.style.left=String(this.mov[3])+"px";
+    this.bolafor.style.top=String(this.mov[2])+"px";
+}
+
+pelota.prototype.mover = function()
+{	
+    if(this.mov[6]==1){
+        this.mov[2]+=this.mov[4];
+    }else{        
+        this.mov[2]-=this.mov[4];
+    }
+    if(this.mov[2]<=13){
+        this.mov[6]=1;
+        this.mov[2]=13;
+    }else if(this.mov[2]>=document.getElementById("borde").offsetHeight-this.tam){
+        this.mov[6]=0;
+        this.mov[2]=document.getElementById("borde").offsetHeight-this.tam;
+    }
+    if(this.mov[7]==1){
+        this.mov[3]+=this.mov[5];
+    }else{        
+        this.mov[3]-=this.mov[5];
+    }
+    if(this.mov[3]<=13){
+        this.mov[7]=1;
+        this.mov[3]=13;
+    }else if(this.mov[3]>=document.getElementById("borde").offsetWidth-this.tam){
+        this.mov[7]=0;
+        this.mov[3]=document.getElementById("borde").offsetWidth-this.tam;
+    }
+	this.bolafor.style.left=String(this.mov[3])+"px";
+    this.bolafor.style.top=String(this.mov[2])+"px";
+}
+
+function crearpelotas()
+{
+	for (var i = 0; i < 10; i++)
+	{
+		arraypelotas[i] = new pelota(i);
+	}
+}
+
+function moverpelotas()
+{
+	//alert(i);
+	//var funcionmover = pelota.prototype.mover();
+	for (var i = 0; i < 10; i++)
+	{
+		arraypelotas[i].mover();
+	}
+}
+
+</script>
+<div id="borde">
+	<div id="contenido">
+		<!--div pelotas-->
+	</div>
+</div>
+</body>
+</html>
